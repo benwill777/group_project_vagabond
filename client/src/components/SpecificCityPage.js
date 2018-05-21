@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
+import NewPost from './NewPost'
 
 class SpecificCityPage extends Component {
     state = {
         cities: {},
-        posts: []
-
+        posts: [],
+        shiwNewForm: false
     }
 
     componentDidMount() {
@@ -28,11 +29,24 @@ class SpecificCityPage extends Component {
             await this.setState({ error: error.message })
         }
     }
-
+    createPost = (newPost) => {
+        console.log('create new post called')
+        axios.post('/api/cities', { newPost })
+            .then((res) => {
+                console.log(res.data)
+                const posts = [this.state.posts]
+                posts.push(res.data)
+                this.setState({ posts })
+            })
+    }
+    toggleShowNewForm = () => {
+        this.setState({ showNewForm: !this.state.showNewForm })
+    }
     render() {
         console.log(this.state.posts)
 
         const postData = this.state.posts.map(post => (
+
             <div key={post.id}>
                 <h3>{post.title}</h3>
                 <h4> {post.description}</h4>
@@ -45,9 +59,13 @@ class SpecificCityPage extends Component {
         return (
             <div>
                 {postData}
+                <button onClick={this.toggleShowNewForm}>Create New Post </button>
+                {this.state.showNewForm ? <NewPost getAllPosts={this.getAllPosts} /> : null}
             </div>
         );
     }
 }
+
+
 
 export default SpecificCityPage

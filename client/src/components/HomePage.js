@@ -25,16 +25,8 @@ class HomePage extends Component {
     };
     render() {
         const cityData = this.state.cities.map(city => {
-            // <div key={city.id}>
-            //     <Link to={`/cities/${city.id}`}>{city.name}</Link>
-            // </div>
-            // if (this.state.err) {
-            //     return <div>{this.state.err}</div>
-            // }
 
             console.log("Rendering Cities", this.state.cities.length)
-
-
 
             return <div key={city.id}>
                 <h1>One specific city</h1>
@@ -50,8 +42,6 @@ class HomePage extends Component {
             <div>
                 <h1>All Cities</h1>
                 {cityData}
-                {/* <h1>{city.name}</h1> */}
-                {/* <Link to={`/cities/${city.id}`}>{cityData}</Link> */}
             </div>
 
         )
