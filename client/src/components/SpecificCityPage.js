@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import styled from 'styled-components'
 
-class Posts extends Component {
+class City extends Component {
     render() {
         return (
             <div>
@@ -10,4 +11,4 @@ class Posts extends Component {
     }
 }
 
-export default Posts;
+export default City;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-class Navbar extends Component {
+class Posts extends Component {
     render() {
         return (
             <div>
@@ -11,4 +11,4 @@ class Navbar extends Component {
     }
 }
 
-export default Navbar;
+export default Posts;
