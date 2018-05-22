@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
 import NewPost from './NewPost'
-
+import SpecificPost from './SpecificPost'
+import { Link } from 'react-router-dom'
 class SpecificCityPage extends Component {
     state = {
         cities: [],
         posts: [],
-        shiwNewForm: false
+        showNewForm: false
     }
 
     componentDidMount() {
@@ -45,11 +46,11 @@ class SpecificCityPage extends Component {
     }
     render() {
         console.log(this.state.posts)
-
+        const cityId = this.props.match.params.id;
         const postData = this.state.posts.map(post => (
 
             <div key={post.id}>
-                <h3>{post.title}</h3>
+                <Link to={`/cities/${cityId}/posts/${post.id}`}>{post.title}</Link>
                 <h4> {post.description}</h4>
                 <h4> {post.post_photo_url}</h4>
                 <h4> {post.posted_user_name} </h4>
@@ -61,6 +62,7 @@ class SpecificCityPage extends Component {
                 {postData}
                 <button onClick={this.toggleShowNewForm}>Create New Post </button>
                 {this.state.showNewForm ? <NewPost fetchCityAndPostData={this.fetchCityAndPostData} cityId={this.state.cities.id} toggleShowNewForm={this.toggleShowNewForm} /> : null}
+                <SpecificPost fetchCityAndPostData={this.fetchCityAndPostData} cityId={this.state.cities.id} />
             </div>
         );
     }
