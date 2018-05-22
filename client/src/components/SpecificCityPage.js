@@ -62,7 +62,7 @@ class SpecificCityPage extends Component {
                 {postData}
                 <button onClick={this.toggleShowNewForm}>Create New Post </button>
                 {this.state.showNewForm ? <NewPost fetchCityAndPostData={this.fetchCityAndPostData} cityId={this.state.cities.id} toggleShowNewForm={this.toggleShowNewForm} /> : null}
-                <SpecificPost fetchCityAndPostData={this.fetchCityAndPostData} cityId={this.state.cities.id} />
+                {/* <SpecificPost fetchCityAndPostData={this.fetchCityAndPostData} cityId={this.state.cities.id} /> */}
             </div>
         );
     }

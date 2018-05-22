@@ -37,7 +37,6 @@ class NewPost extends Component {
     render() {
         return (
             <div>
-
                 <form onSubmit={this.handleSubmit}>
                     <div>
                         <label htmlFor="title">Title: </label>
@@ -57,7 +56,6 @@ class NewPost extends Component {
                     </div>
                     <button>Submit</button>
                 </form>
-
             </div>
         )
 
