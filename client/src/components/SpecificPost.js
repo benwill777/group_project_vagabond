@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import UpdatePosts from './UpdatePosts'
+
 
 class SpecificPost extends Component {
     state = {
@@ -65,10 +67,9 @@ class SpecificPost extends Component {
 
                 <button onClick={this.toggleShowUpdateForm}>
                     Update {this.state.post.name}
-                </button></div >
-
-
-
+                </button>
+                {this.state.showUpdateForm ? <UpdatePosts /> : null}
+            </div >
         )
     }
 }

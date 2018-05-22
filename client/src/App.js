@@ -8,9 +8,6 @@ import HomePage from './components/HomePage'
 import SpecificCityPage from './components/SpecificCityPage'
 import SpecificPost from './components/SpecificPost'
 
-
-
-
 class App extends Component {
 
   render() {
