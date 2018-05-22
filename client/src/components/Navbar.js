@@ -7,8 +7,8 @@ display: flex;
 justify-content: space-between;
 flex-direction: row;
 width: 100vw;
-font-size: 20px;
-box-shadow: 0px 3px 3px rgba(0,0,0,0.5);
+font-size: 35px;
+box-shadow: 0px 6px 6px rgba(0,0,0,0.5);
 `
 class Navbar extends Component {
     render() {

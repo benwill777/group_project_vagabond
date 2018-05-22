@@ -52,7 +52,6 @@ class SpecificCityPage extends Component {
                 <h4> {post.description}</h4>
                 <h4> {post.post_photo_url}</h4>
                 <h4> {post.posted_user_name} </h4>
-
             </div>
         ))
 

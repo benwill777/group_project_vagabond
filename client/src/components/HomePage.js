@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import axios from 'axios'
 
+
 class HomePage extends Component {
     state = {
         cities: []
@@ -29,7 +30,7 @@ class HomePage extends Component {
             console.log("Rendering Cities", this.state.cities.length)
 
             return <div key={city.id}>
-                <h1>One specific city</h1>
+
                 <Link to={`/cities/${city.id}`}>{city.name}</Link>
             </div>
             if (this.state.err) {

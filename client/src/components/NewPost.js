@@ -19,7 +19,7 @@ class NewPost extends Component {
         this.setState(newState)
     }
 
-    handleSubmit = async event => {
+    handleSubmit = async (event) => {
         event.preventDefault()
         const transferdata = {
             title: this.state.title,
@@ -27,7 +27,9 @@ class NewPost extends Component {
             post_photo_url: this.state.post_photo_url,
             posted_user_name: this.state.posted_user_name
         }
-        await axios.post('/api/cities', transferdata);
+
+        console.log("were running this right")
+        await axios.post('/api/cities/:id/posts/', transferdata);
         await this.props.getAllCities()
     }
 
@@ -45,14 +47,14 @@ class NewPost extends Component {
                         <input onChange={this.handleChange} type="text" name="description" />
                     </div>
                     <div>
-                        <label htmlFor="post_photo_url">Post_photo_url: </label>
+                        <label htmlFor="post_photo_url">photo url: </label>
                         <input onChange={this.handleChange} type="text" name="post_photo_url" />
                     </div>
                     <div>
-                        <label htmlFor="posted_user_name">Posted_user_name: </label>
+                        <label htmlFor="posted_user_name">Username: </label>
                         <input onChange={this.handleChange} type="text" name="posted_user_name" />
                     </div>
-                    <button >Submit</button>
+                    <button>Submit</button>
                 </form>
 
             </div>
