@@ -4,7 +4,14 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import UpdatePosts from './UpdatePosts'
 
+const HomeStyle = styled.div`
+background-image: url('https://free4kwallpaper.com/wp-content/uploads/2016/01/Natural-Wonder-Nature-4K-Wallpaper-1440x900.jpg');
+margin-top: -1px;
 
+width: 100vw;
+height: 100vh;
+background-color: palevioletred;
+`
 class SpecificPost extends Component {
     state = {
         post: {},
@@ -46,17 +53,11 @@ class SpecificPost extends Component {
                 console.log(err)
             })
     }
-    editPost = (event) => {
-        event.preventDefault()
-        const postId = this.state.post.id
-        const payload = this.state.post
-        console.log("editpost is being called")
-        axios.put(`/api/cities/${this.props.cityId}/posts/${postId}`, payload)
-    }
+
 
     render() {
         return (
-            <div>
+            <HomeStyle> <div>
                 <h1>Specfic Post</h1>
                 <Link to='/'><button>Go Home</button></Link>
                 <Link to='/'><button onClick={this.removePost}>Delete Post</button></Link>
@@ -68,8 +69,8 @@ class SpecificPost extends Component {
                 <button onClick={this.toggleShowUpdateForm}>
                     Update {this.state.post.name}
                 </button>
-                {this.state.showUpdateForm ? <UpdatePosts /> : null}
-            </div >
+                {this.state.showUpdateForm ? <UpdatePosts post={this.state.post} /> : null}
+            </div ></HomeStyle>
         )
     }
 }

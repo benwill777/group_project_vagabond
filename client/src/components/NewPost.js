@@ -2,6 +2,14 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
 
+const HomeStyle = styled.div`
+background-image: url('https://free4kwallpaper.com/wp-content/uploads/2016/01/Natural-Wonder-Nature-4K-Wallpaper-1440x900.jpg');
+margin-top: -1px;
+
+width: 100vw;
+height: 100vh;
+background-color: palevioletred;
+`
 class NewPost extends Component {
     state = {
         newPost: {
@@ -36,7 +44,7 @@ class NewPost extends Component {
 
     render() {
         return (
-            <div>
+            <HomeStyle><div>
                 <form onSubmit={this.handleSubmit}>
                     <div>
                         <label htmlFor="title">Title: </label>
@@ -56,7 +64,7 @@ class NewPost extends Component {
                     </div>
                     <button>Submit</button>
                 </form>
-            </div>
+            </div></HomeStyle>
         )
 
     }

@@ -4,6 +4,20 @@ import styled from 'styled-components'
 import NewPost from './NewPost'
 import SpecificPost from './SpecificPost'
 import { Link } from 'react-router-dom'
+
+
+const HomeStyle = styled.div`
+background-image: url('https://free4kwallpaper.com/wp-content/uploads/2016/01/Natural-Wonder-Nature-4K-Wallpaper-1440x900.jpg');
+margin-top: -1px;
+
+width: 100vw;
+height: 100vh;
+background-color: white;
+
+h4{
+color: palevioletred;
+}
+`
 class SpecificCityPage extends Component {
     state = {
         cities: [],
@@ -58,12 +72,12 @@ class SpecificCityPage extends Component {
         ))
 
         return (
-            <div>
+            <HomeStyle> <div>
                 {postData}
                 <button onClick={this.toggleShowNewForm}>Create New Post </button>
                 {this.state.showNewForm ? <NewPost fetchCityAndPostData={this.fetchCityAndPostData} cityId={this.state.cities.id} toggleShowNewForm={this.toggleShowNewForm} /> : null}
                 {/* <SpecificPost fetchCityAndPostData={this.fetchCityAndPostData} cityId={this.state.cities.id} /> */}
-            </div>
+            </div></HomeStyle>
         );
     }
 }

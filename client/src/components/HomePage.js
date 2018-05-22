@@ -3,7 +3,14 @@ import styled from 'styled-components'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import axios from 'axios'
 
+const HomeStyle = styled.div`
+background-image: url('https://free4kwallpaper.com/wp-content/uploads/2016/01/Natural-Wonder-Nature-4K-Wallpaper-1440x900.jpg');
+margin-top: -1px;
 
+width: 100vw;
+height: 90vh;
+background-color: palevioletred;
+`
 class HomePage extends Component {
     state = {
         cities: []
@@ -40,10 +47,10 @@ class HomePage extends Component {
         console.log("CITY DATA", cityData)
 
         return (
-            <div>
-                <h1>All Cities</h1>
+            <HomeStyle><div>
+
                 {cityData}
-            </div>
+            </div></HomeStyle>
 
         )
     }
