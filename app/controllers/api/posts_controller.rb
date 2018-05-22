@@ -18,6 +18,7 @@ class Api::PostsController < ApplicationController
   end
 
   def update
+    @city = City.find(params[:city_id])
     @post = Post.find params[:id]
     @post.update!(post_params)
     render json: @post

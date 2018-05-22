@@ -4,7 +4,6 @@ import axios from 'axios'
 
 class NewPost extends Component {
     state = {
-        cities: [],
         newPost: {
             title: '',
             description: '',
@@ -14,23 +13,25 @@ class NewPost extends Component {
     }
     handleChange = (event) => {
         const name = event.target.name
-        const newState = { ...this.state }
-        newState[name] = event.target.value
-        this.setState(newState)
+        const newPost = { ...this.state.newPost }
+        newPost[name] = event.target.value
+        this.setState({ newPost })
     }
 
     handleSubmit = async (event) => {
         event.preventDefault()
         const transferdata = {
-            title: this.state.title,
-            description: this.state.description,
-            post_photo_url: this.state.post_photo_url,
-            posted_user_name: this.state.posted_user_name
+            title: this.state.newPost.title,
+            description: this.state.newPost.description,
+            post_photo_url: this.state.newPost.post_photo_url,
+            posted_user_name: this.state.newPost.posted_user_name,
+            city_id: this.props.cityId
         }
 
-        console.log("were running this right")
-        await axios.post('/api/cities/:id/posts/', transferdata);
-        await this.props.getAllCities()
+        console.log("From submit function transferdata: ", transferdata)
+        await axios.post(`/api/cities/${this.props.cityId}/posts/`, transferdata);
+        this.props.fetchCityAndPostData(this.props.cityId)
+        this.props.toggleShowNewForm()
     }
 
     render() {

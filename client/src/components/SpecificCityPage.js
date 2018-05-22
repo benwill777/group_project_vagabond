@@ -5,7 +5,7 @@ import NewPost from './NewPost'
 
 class SpecificCityPage extends Component {
     state = {
-        cities: {},
+        cities: [],
         posts: [],
         shiwNewForm: false
     }
@@ -19,6 +19,7 @@ class SpecificCityPage extends Component {
         try {
             const cityResponse = await axios.get(`/api/cities/${cityId}`)
             const postResponse = await axios.get(`/api/cities/${cityId}/posts`)
+            console.log('cityResponse: ', cityResponse.data)
             await this.setState({
                 cities: cityResponse.data,
                 posts: postResponse.data
@@ -59,7 +60,7 @@ class SpecificCityPage extends Component {
             <div>
                 {postData}
                 <button onClick={this.toggleShowNewForm}>Create New Post </button>
-                {this.state.showNewForm ? <NewPost getAllPosts={this.getAllPosts} /> : null}
+                {this.state.showNewForm ? <NewPost fetchCityAndPostData={this.fetchCityAndPostData} cityId={this.state.cities.id} toggleShowNewForm={this.toggleShowNewForm} /> : null}
             </div>
         );
     }
